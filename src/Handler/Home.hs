@@ -10,8 +10,12 @@ import Import
 
 getHomeR :: Handler Html
 getHomeR = defaultLayout $ do 
+    toWidgetHead [hamlet|<script src=@{StaticR js_ola_js}>|]
     [whamlet|
             <h1>
-                <a href=@{ProdutoR}>
-                    CADASTRO DE PRODUTO
+                SISTEMA DE PRODUTOS
+            <br>
+            <img src=@{StaticR imgs_shop_svg}>
+            <a href=@{ProdutoR}>
+                CADASTRO DE PRODUTO
     |]

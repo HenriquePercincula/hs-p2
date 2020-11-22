@@ -4,6 +4,7 @@
 {-# LANGUAGE MultiParamTypeClasses #-}
 {-# LANGUAGE TypeFamilies #-}
 {-# LANGUAGE ViewPatterns #-}
+{-# LANGUAGE QuasiQuotes #-}
 
 module Foundation where
 
@@ -11,8 +12,6 @@ import Import.NoFoundation
 import Database.Persist.Sql (ConnectionPool, runSqlPool)
 import Yesod.Core.Types     (Logger)
 import qualified Yesod.Core.Unsafe as Unsafe
-
-
 
 data App = App
     { appSettings    :: AppSettings
@@ -26,6 +25,22 @@ mkYesodData "App" $(parseRoutesFile "config/routes.yesodroutes")
 
 instance Yesod App where
     makeLogger = return . appLogger
+    defaultLayout contents = do
+        PageContent title headTags bodyTags <- widgetToPageContent contents
+        mmsg <- getMessage
+        withUrlRenderer [hamlet|
+            $doctype 5
+
+            <html>
+                <head>
+                    <title>#{title}
+                    ^{headTags}
+                <body>
+                    $maybe msg <- mmsg
+                        <div #message>#{msg}
+                    <div class="container">    
+                    ^{bodyTags}
+        |]
 
 instance YesodPersist App where
     type YesodPersistBackend App = SqlBackend

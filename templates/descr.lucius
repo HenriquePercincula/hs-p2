@@ -1,0 +1,8 @@
+.minhaClasse{
+    background-color: yellow;
+}
+
+body{
+    margin: 0 auto;
+    padding: 5em 10%
+}
