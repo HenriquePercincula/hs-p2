@@ -80,3 +80,8 @@ postDelProdR :: ProdutoId -> Handler Html
 postDelProdR pid = do
     runDB $ delete pid
     redirect ListaR
+    
+postDelProdR :: ProdutoId -> Handler Html
+postDelProdR pid = do
+    runDB $ delete pid
+    redirect ListaR
