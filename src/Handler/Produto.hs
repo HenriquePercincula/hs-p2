@@ -75,3 +75,8 @@ postUpdProdR pid = do
             runDB $ replace pid produto
             redirect ListaR
         _-> redirect HomeR
+
+postDelProdR :: ProdutoId -> Handler Html
+postDelProdR pid = do
+    runDB $ delete pid
+    redirect ListaR
