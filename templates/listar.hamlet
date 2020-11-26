@@ -6,6 +6,8 @@
             <th>
                 Valor
             <th>
+            
+            <th>
                                
     <tbody>
         $forall Entity pid produto <- produtos
