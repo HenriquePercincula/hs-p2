@@ -25,6 +25,15 @@ mkYesodData "App" $(parseRoutesFile "config/routes.yesodroutes")
 
 instance Yesod App where
     makeLogger = return . appLogger
+
+    authRoute _ = Just LoginR
+
+    isAuthorized HomeR _ = return Authorized
+    isAuthorized LoginR _ = return Authorized
+    isAuthorized ProdutoR _ = return Authorized
+    isAuthorized AdminR _ = isAdmin
+    isAuthorized _ _ = isUsuario
+
     defaultLayout contents = do
         PageContent title headTags bodyTags <- widgetToPageContent contents
         mmsg <- getMessage
@@ -41,6 +50,21 @@ instance Yesod App where
                     <div class="container">    
                     ^{bodyTags}
         |]
+
+isAdmin :: Handler AuthResult
+isAdmin = do 
+    sess <- lookupSession "_ID"
+    case sess of 
+        Nothing -> return AuthenticationRequired
+        Just "admin" -> return Authorized
+        Just _ -> return $ Unauthorized "Desculpe, mas você é um usuário comum. Apenas admin tem acesso a essa página."
+
+isUsuario :: Handler AuthResult
+isUsuario = do 
+    sess <- lookupSession "_ID"
+    case sess of 
+        Nothing -> return AuthenticationRequired
+        Just _ -> return Authorized
 
 instance YesodPersist App where
     type YesodPersistBackend App = SqlBackend
