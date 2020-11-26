@@ -5,13 +5,16 @@
 
 / HomeR GET
  
-/produto                        ProdutoR   GET POST
-/produto/desc/#ProdutoId        DescR      GET
-/produtos                       ListaR     GET
-/produto/modificar/#ProdutoId   UpdProdR   GET POST
-/produto/apagar/#ProdutoId      DelProdR   POST
+/produto                        ProdutoR        GET POST
+/produto/desc/#ProdutoId        DescR           GET
+/produtos                       ListaR          GET
+/produto/modificar/#ProdutoId   UpdProdR        GET POST
+/produto/apagar/#ProdutoId      DelProdR        POST
 
-/usuario                        UsuarioR   GET POST
-/login                          LoginR     GET POST
-/logout                         LogoutR    POST
-/admin                          AdminR     GET
+/usuario                        UsuarioR        GET POST
+/login                          LoginR          GET POST
+/logout                         LogoutR         POST
+/admin                          AdminR          GET
+
+/compra/#ProdutoId/efetuar      CompraR         POST
+/carrinho                       ListCompraR     GET

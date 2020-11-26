@@ -9,16 +9,16 @@
             
             <th>
                                
-    <tbody>
+    <tbody style="font-family:sans-serif" >
         $forall Entity pid produto <- produtos
             <tr>
                 <td>
-                    #{produtoNome produto}
+                    <a href=@{DescR pid}>
+                        #{produtoNome produto}
                 <td>
                     #{produtoValor produto}
                 <td>
-                    <a href=@{UpdProdR pid}>
                         Editar
                 <td>
                     <form action=@{DelProdR pid} method=post>
-                        <input type="submit" value="Excluir">
+                        <input type="submit" value="Excluir" style="border:none; padding:5px 20px; border-radius:5%;background-color:#f44;color:white">

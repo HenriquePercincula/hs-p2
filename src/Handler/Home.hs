@@ -8,6 +8,13 @@ module Handler.Home where
 
 import Import
 
+getAdminR :: Handler Html
+getAdminR = do
+    defaultLayout $ do
+        [whamlet|
+            <h1>
+                BEM-VINDO, ADEMIR! 
+        |]
 
 
 getHomeR :: Handler Html
@@ -23,7 +30,7 @@ getHomeR = defaultLayout $ do
             <br>
             <img src=@{StaticR imgs_shop_svg} width=100% style="margin:0 auto;max-height:400px;" > <br>
             
-            <ul>
+            <ul style="list-style-type:none;" >
                 <li>
                     <a href=@{ProdutoR}>
                         CADASTRO DE PRODUTO    
