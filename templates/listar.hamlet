@@ -5,6 +5,8 @@
                 Nome
             <th>
                 Valor
+            <th>
+                               
     <tbody>
         $forall Entity pid produto <- produtos
             <tr>
@@ -12,3 +14,6 @@
                     #{produtoNome produto}
                 <td>
                     #{produtoValor produto}
+                <td>
+                    <a href=@{UpdProdR pid}>
+                        Editar
