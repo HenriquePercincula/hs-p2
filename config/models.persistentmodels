@@ -3,3 +3,9 @@ Produto
     valor Double
     deriving Show
 
+Usuario
+    email Text
+    senha Text
+    UniqueEmail email
+    deriving Show
+

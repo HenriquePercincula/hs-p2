@@ -33,7 +33,7 @@ auxProdutoR rt mp = do
         [whamlet|
             <form action=@{rt} method=post>
                 ^{formWidget}
-                <input type="submit" value="OK">
+                <input type="submit" value="OK" style="border:none; padding:5px 20px; border-radius:5%;background-color:#f44;color:white">
         |]
 
 getProdutoR :: Handler Html
@@ -76,11 +76,6 @@ postUpdProdR pid = do
             redirect ListaR
         _-> redirect HomeR
 
-postDelProdR :: ProdutoId -> Handler Html
-postDelProdR pid = do
-    runDB $ delete pid
-    redirect ListaR
-    
 postDelProdR :: ProdutoId -> Handler Html
 postDelProdR pid = do
     runDB $ delete pid

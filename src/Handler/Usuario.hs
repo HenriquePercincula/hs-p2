@@ -4,7 +4,7 @@
 {-# LANGUAGE MultiParamTypeClasses #-}
 {-# LANGUAGE TypeFamilies #-}
 {-# LANGUAGE QuasiQuotes #-}
-module Handler.Login where
+module Handler.Usuario where
 
 import Import
 import Text.Lucius
@@ -32,7 +32,7 @@ getUsuarioR = do
 
             <form action=@{UsuarioR} method=post>
                 ^{formWidget}
-                <input type="submit" value="Cadastrar">
+                <input type="submit" value="Cadastrar" style="border:none; padding:5px 20px; border-radius:5%;background-color:#f44;color:white">
         |]        
 
 postUsuarioR :: Handler Html
