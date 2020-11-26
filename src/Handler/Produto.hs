@@ -8,6 +8,7 @@ module Handler.Produto where
 
 import Import
 import Text.Lucius
+import Handler.Tools
 import Yesod.Form.Bootstrap3 (BootstrapFormLayout (..), renderBootstrap3)
 -- fmap functor f => (a -> b) -> f a -> f b
 -- (<*>) :: Applicative f => f (a -> b) -> f a -> f b
@@ -48,9 +49,7 @@ postProdutoR = do
             redirect (DescR pid)
         _-> redirect HomeR
 
-formQt :: Form Int
-formQt = renderBootstrap3 BootstrapBasicForm (areq intField "Quantidade: " (Just 1))
-   
+
 getDescR :: ProdutoId -> Handler Html
 getDescR pid = do
     produto <- runDB $ get404 pid

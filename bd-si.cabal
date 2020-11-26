@@ -4,7 +4,7 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: 697027714cd6bed01c4598e6bf370296de6f393ca5f8fb06280b87e5c2eaa35c
+-- hash: da197fc21d9990be9700938935c183fd150ed342e59cc8f5ba5fa6cbf1a80767
 
 name:           bd-si
 version:        0.0.0
@@ -28,6 +28,7 @@ library
       Handler.Home
       Handler.Login
       Handler.Produto
+      Handler.Tools
       Handler.Usuario
       Import
       Import.NoFoundation

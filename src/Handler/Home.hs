@@ -25,26 +25,30 @@ getHomeR = defaultLayout $ do
     |]
     sess <- lookupSession "_ID"
     [whamlet|
-            <h1>
-                SISTEMA DE PRODUTOS
-            <br>
-            <img src=@{StaticR imgs_shop_svg} width=100% style="margin:0 auto;max-height:400px;" > <br>
-            
-            <ul style="list-style-type:none;" >
-                <li>
-                    <a href=@{ProdutoR}>
-                        CADASTRO DE PRODUTO    
-                $maybe sessao <- sess
+            <div style="font-family: sans-serif">
+                <h1>
+                    SISTEMA DE PRODUTOS
+                <br>
+                <img src=@{StaticR imgs_shop_svg} width=100% style="margin:0 auto;max-height:400px;" > <br>
+                
+                <ul style="list-style-type:none;" >
+                    <li>
+                        <a href=@{ProdutoR}>
+                            CADASTRO DE PRODUTO
                     <li>                       
                         <a href=@{ListaR}>
-                            LISTAGEM DE PRODUTOS
-                    <li>              
-                        <form action=@{LogoutR} method=post>
-                            <input type="submit" value="Logout" style="border:none; padding:5px 20px; border-radius:5%;background-color:#f44;color:white">
-                $nothing
-                    <li>
-                        <a href=@{LoginR}>
-                            Entrar
+                            LISTAGEM    
+                    $maybe sessao <- sess
+                        <li>                       
+                            <a href=@{ListaR}>
+                                LISTAGEM DE PRODUTOS
+                        <li>              
+                            <form action=@{LogoutR} method=post>
+                                <input type="submit" value="Logout" style="border:none; padding:5px 20px; border-radius:5%;background-color:#f44;color:white">
+                    $nothing
+                        <li>
+                            <a href=@{LoginR}>
+                                Entrar
 
 
                         
