@@ -29,7 +29,7 @@ getHomeR = defaultLayout $ do
                 <h1>
                     SISTEMA DE PRODUTOS
                 <br>
-                <img src=@{StaticR imgs_shop_svg} width=100% style="margin:0 auto;max-height:400px;" > <br>
+                <img src=@{StaticR imgs_shop_png} width=100% style="margin:0 auto;max-height:400px;" > <br>
                 
                 <ul style="list-style-type:none;" >
                     <li>
